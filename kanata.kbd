@@ -1,14 +1,10 @@
 ;; defsrc is still necessary
 (defcfg
   process-unmapped-keys yes
+  log-layer-changes no
   tray-icon "./icons/kanata-icon.png"
-  icon-match-layer-name yes
   tooltip-layer-changes yes
-  tooltip-show-blank yes
-  tooltip-duration 500
-  notify-cfg-reload yes
-  notify-cfg-reload-silent no
-  notify-error yes
+  tooltip-no-base no
 )
 
 (defsrc
@@ -16,9 +12,9 @@
 )
 
 (defvar
-  tap-time 180
+  tap-time 200
   hold-time 200
-  long-hold-time 250
+  long-hold-time 285
 )
 
 (defalias
@@ -27,14 +23,14 @@
     ((base-layer homerow)) (layer-switch normal) break
   ))
   caps (tap-hold 0 400 esc caps)
-  a (tap-hold $tap-time $hold-time a lmet)
+  a (tap-hold $tap-time $long-hold-time a lmet)
   s (tap-hold $tap-time $long-hold-time s lalt)
   d (tap-hold $tap-time $hold-time d lsft)
   f (tap-hold $tap-time $hold-time f lctl)
   j (tap-hold $tap-time $hold-time j rctl)
   k (tap-hold $tap-time $hold-time k rsft)
   l (tap-hold $tap-time $long-hold-time l ralt)
-  ; (tap-hold $tap-time $hold-time ; rmet)
+  ; (tap-hold $tap-time $long-hold-time ; rmet)
 )
 
 (deflayer (homerow icon "./icons/homerow.png")
@@ -42,5 +38,5 @@
 )
 
 (deflayer (normal icon "./icons/kanata-icon-empty.png")
-  caps a s d f j k l ; @swlayer
+  caps  a  s  d  f  j  k  l  ;  @swlayer
 )
